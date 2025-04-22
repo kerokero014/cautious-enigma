@@ -1,17 +1,17 @@
 // theme.ts
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
-      main: "#ff6f61",
+      main: '#ff6f61',
     },
     secondary: {
-      main: "#f5a623",
+      main: '#f5a623',
     },
   },
   typography: {
-    fontFamily: `"Fira Code", monospace`,
+    fontFamily: 'Fira Code, monospace',
   },
 });
