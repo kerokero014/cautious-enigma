@@ -2,8 +2,11 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
-    // …other settings
+  },
+  "paths": {
+    "@mui/lab": ["node_modules/@mui/lab"]
   },
   "files": [],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
