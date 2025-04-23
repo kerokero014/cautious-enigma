@@ -1,29 +1,24 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+// src/components/Navbar.tsx
+import { AppBar, Toolbar, Typography, Button, Box, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { navbarStyles } from './Styles/NavbarStyle';
 
 const Navbar = () => {
+  const theme = useTheme();
+  const styles = navbarStyles(theme);
+
   return (
     <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Kevin's Portfolio
+      <Toolbar sx={styles.toolbar}>
+        <Typography variant="h6" sx={styles.logo}>
+          Kevin Mendoza
         </Typography>
-        <Box>
-          <Button color="inherit" component={Link} to="/">
-            Home
-          </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
-          </Button>
-          <Button color="inherit" component={Link} to="/projects">
-            Projects
-          </Button>
-          <Button color="inherit" component={Link} to="/experience">
-            Experience
-          </Button>
-          <Button color="inherit" component={Link} to="/contact">
-            Contact
-          </Button>
+        <Box sx={styles.navItems}>
+          {['/', '/about', '/projects', '/experience', '/contact'].map((path, i) => (
+            <Button key={i} component={Link} to={path} sx={styles.navLink}>
+              {path === '/' ? 'Home' : path.replace('/', '').replace('-', ' ').toUpperCase()}
+            </Button>
+          ))}
         </Box>
       </Toolbar>
     </AppBar>
