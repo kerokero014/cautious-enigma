@@ -9,7 +9,7 @@ import {
 } from '@mui/lab';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import * as anime from 'animejs';
+import { createTimeline, stagger } from 'animejs';
 
 const events = [
   {
@@ -40,15 +40,16 @@ const events = [
 
 const Experience = () => {
   useEffect(() => {
-    const timeline = anime.timeline({ loop: false });
+    const timeline = createTimeline({
+      loop: false,
+      defaults: { duration: 800 },
+    });
 
-    timeline.add({
-      targets: '.timeline-dot',
+    // Add animation using the animation signature: (targets, properties)
+    timeline.add('.timeline-dot', {
       scale: [0, 1],
       opacity: [0, 1],
-      easing: 'easeOutElastic(1, .6)',
-      duration: 800,
-      delay: anime.stagger(200),
+      delay: stagger(200),
     });
   }, []);
 
