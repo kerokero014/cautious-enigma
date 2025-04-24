@@ -1,0 +1,53 @@
+/* keep this */
+#creature-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+/* this replaces your old “#creature” */
+.creature-container {
+  position: inherit; /* so flex-centering on the wrapper works */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 150em;
+  height: 150em;
+  font-size: 0.2vh;
+
+  filter: blur(15px); /* optional blur on each creature */
+}
+
+/* stand-alone dot rules */
+.creature-dot {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  margin: 3em;
+  border-radius: 2em;
+  will-change: transform;
+  mix-blend-mode: plus-lighter;
+  /* background is set in JS */
+}
+
+/* per-creature blend modes (still works via the container’s id) */
+#creature-one {
+  mix-blend-mode: screen;
+}
+#creature-two {
+  mix-blend-mode: lighten;
+}
+#creature-three {
+  mix-blend-mode: overlay;
+}
